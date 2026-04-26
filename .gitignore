@@ -1,0 +1,12 @@
+# Archives locales (cours, tp, plans)
+_archives/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.swp
+*.log
