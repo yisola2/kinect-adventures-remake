@@ -163,9 +163,8 @@ Au début j'utilisais la **sélection par roulette** (probabilité proportionnel
 - **Moins de sorties = convergence plus rapide.** Chaque sortie supplémentaire augmente exponentiellement l'espace de recherche du GA.
 - **Les pénalités sont essentielles** pour éviter les local minima. Sans le `Z_ACTION_COST`, les agents trouvent des "raccourcis" qui plafonnent.
 - **La sélection par tournoi** est plus robuste que la roulette pour maintenir la diversité génétique.
-- **CPU > GPU** pour les petits réseaux. Le transfert mémoire vers le GPU coûte plus cher que le calcul lui-même.
 
-> Merci aux assistants IA (Claude, ChatGPT) qui m'ont accompagné pendant tout le debug — notamment pour traquer le bug silencieux d'`obs.r` qui m'aurait pris des jours à trouver tout seul.
+> Merci aux assistants IA (Gemini 3.1 Pro (High) sur Antigravity et Claude) qui m'ont accompagné pendant tout le debug — notamment pour traquer le bug silencieux d'`obs.r` qui m'aurait pris des jours à trouver tout seul.
 
 ---
 
