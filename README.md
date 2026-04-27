@@ -3,8 +3,8 @@
 **Master IA2 — Steering Behaviors (Nice 2025-2026)**
 
 
-[▶️ Jouer en ligne (GitHub Pages)](TODO)  
-[🎥 Vidéo de démo (YouTube)](TODO)
+[▶️ Jouer en ligne (GitHub Pages)](https://yisola2.github.io/kinect-adventures-remake/)  
+[🎥 Vidéo de démo (YouTube)](ici le lien de youtube)
 
 ---
 

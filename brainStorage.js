@@ -46,21 +46,25 @@ function saveBestBrain() {
   
   let brainJSON = null;
 
-  // Always prefer the absolute best brain recorded so far
+  // 1. Priority: The absolute best brain recorded in the Hall of Fame
   if (population.allTimeBestBrainData) {
-     brainJSON = population.allTimeBestBrainData;
-  } else if (population.agents.length > 0) {
-     // Fallback: If Generation 1 hasn't even finished yet, just grab the current leader
+     brainJSON = JSON.parse(JSON.stringify(population.allTimeBestBrainData)); // Deep clone to avoid mutation
+  } 
+  // 2. Fallback: Current population's best (useful during the very first generation)
+  else if (population.agents.length > 0) {
      let currentBest = population.agents[0];
      for (let a of population.agents) {
        if (a.distanceCovered > currentBest.distanceCovered) {
          currentBest = a;
        }
      }
+     
      let weights = currentBest.brain.getWeights();
      let weightData = weights.map(w => Array.from(w.dataSync()));
      brainJSON = {
        metadata: {
+         // If we are at the very start of a gen, population.generation might be N+1
+         // while agents are still N. We take the population's current gen.
          generation: population.generation,
          fitness: Math.floor(currentBest.distanceCovered),
          distance: Math.floor(currentBest.distanceCovered),
@@ -77,6 +81,8 @@ function saveBestBrain() {
        weights: weightData
      };
   }
+
+  if (!brainJSON) return;
 
   // 1. Auto-save to Vault (Internal Database)
   saveToVault(brainJSON);
